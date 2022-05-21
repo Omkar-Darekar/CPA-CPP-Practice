@@ -18,8 +18,10 @@ class list {
         int Generic_Insert(node* p_beg, node* p_mid, node* p_end);
         bool IsDataAvailable(int data, node** p_Current_Node);
         bool IsListEmpty() const;
+        void Generic_Delete(node* beg, node* mid, node* last);
     public:
         list();
+        ~list();
         int Insert_Start(int data);
         int Insert_End(int data);
 
@@ -35,6 +37,10 @@ class list {
 
         bool Pop_First(int* data);
         bool Pop_Last(int* data);
+
+        bool Remove_After(int data);
+        bool Remove_Before(int data);
+
 };
 
 #endif //__SINGLY_LINK_LIST__H__

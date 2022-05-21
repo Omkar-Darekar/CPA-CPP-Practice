@@ -3,7 +3,7 @@
 int main(void) {
 
     list* pList = new list();
-/*
+
     for(int i = 0; i < 10; i++) {
         pList->Insert_End(i * 2);
     }
@@ -18,7 +18,12 @@ int main(void) {
 
     pList->Insert_After(2, 299);
     pList->Show_List();
-*/
+
+    pList->Remove_Before(9);
+    pList->Show_List();
+
+    pList->Remove_After(100);
+
     int k;
     printf("Lenght of list : %d\n\n", pList->Get_Length());
     
@@ -66,5 +71,16 @@ int main(void) {
 
     pList->Show_List();
 
+    pList->Remove_After(1);
+    pList->Show_List();
+
+    puts("-----------------------");
+    pList->Remove_Before(1);
+    pList->Show_List();
+
+    pList->Remove_Before(9);
+    pList->Show_List();
+
+    delete (pList);
     return (0);
 }

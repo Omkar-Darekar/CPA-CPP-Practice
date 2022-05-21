@@ -159,4 +159,66 @@ bool list::Pop_Last(int* data) {
     return (true);
 }
 
+bool list::Remove_After(int data) {
+    node* DataNode = NULL;
+    if(!IsDataAvailable(data, &DataNode)) {
+        printf("Input data not found\n");
+        return (false);
+    }
+
+    if(DataNode->next == NULL) {
+        puts("No next data present\n");
+        return (false);
+    }
+
+    Generic_Delete(DataNode, DataNode->next, DataNode->next->next);
+    return (true);
+}
+
+void list::Generic_Delete(node* beg, node* mid, node* last) {
+    beg->next = last;
+    delete (mid);
+}
+
+bool list::Remove_Before(int data) {
+    if(IsListEmpty()) {
+        puts("List is empty\n");
+        return (false);
+    }
+
+    if(pNode->next->data == data) {
+        puts("No before data present\n");
+        return (false);
+    }
+
+    node* run = pNode->next;
+    node* tmp = pNode;
+
+    while(run->next->data != data) {
+        run = run->next;
+        tmp = tmp->next;
+    }
+
+    if(run->next->data == data) {
+        Generic_Delete(tmp, run, run->next);
+        return (true);
+    }
+
+    return (false);
+}
+
+list::~list() {
+    node* run = pNode->next;
+    node* run_next = NULL;
+    while(run != NULL) {
+        run_next = run->next;
+        delete (run);
+        run = run_next;
+    }
+    delete (pNode);
+    pNode = NULL;
+
+    puts("\n*Removed all the nodes*\n");
+}
+
 
