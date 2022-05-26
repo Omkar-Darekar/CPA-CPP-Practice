@@ -159,4 +159,60 @@ bool list::Get_Last(int* iRet) const {
     return (true);
 }
 
+bool list::Get_After(int iPresentData, int* iRet) const {
+    node* p_CurrentNode = NULL;
+    if((p_CurrentNode = Is_Data_Present(iPresentData)) == NULL) {
+        puts("Entered data is not present\n");
+        return (false);
+    }
+    if(p_CurrentNode->next == plist) {
+        puts("No after data present\n");
+        return (false);
+    }
+    *iRet = p_CurrentNode->next->data;
+    return (true);
+}
+
+bool list::Get_Before(int iPresentData, int* iRet) const {
+    node* p_CurrentNode = NULL;
+    if((p_CurrentNode = Is_Data_Present(iPresentData)) == NULL) {
+        puts("Entered data is not present\n");
+        return (false);
+    }
+    if(p_CurrentNode->prev == plist) {
+        puts("No after data present\n");
+        return (false);
+    }
+    *iRet = p_CurrentNode->prev->data;
+    return (true);
+}
+
+bool list::Pop_First(int* iRet) {
+    if(Is_List_Empty()) {
+        puts("List is empty\n");
+        return (false);
+    }
+    *iRet = plist->next->data;
+    return (Generic_Delete(plist, plist->next, plist->next->next));
+}
+
+bool list::Pop_Last(int* iRet) {
+    if(Is_List_Empty()) {
+        puts("List is empty\n");
+        return (false);
+    }
+    *iRet = plist->prev->data;
+    return (Generic_Delete(plist->prev->prev, plist->prev, plist));
+}
+
+list::~list() {
+    node* run = plist->next, *run_next = NULL;
+    while(run != plist) {
+        run_next = run->next;
+        delete (run);
+        run = run_next;
+    }
+    delete (plist);
+    puts("Deleted all nodes\n");
+}
 

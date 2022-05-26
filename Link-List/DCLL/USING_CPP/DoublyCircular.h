@@ -11,7 +11,6 @@ class node {
         node* next;
         node* prev;
         node(int iNewData);
-
 };
 
 class list {
@@ -23,6 +22,7 @@ class list {
         bool Generic_Delete(node* beg, node* mid, node* last);
     public:
         list();
+        ~list();
 
         bool Insert_First(int iNewData);
         bool Insert_Last(int iNewData);
@@ -45,6 +45,8 @@ class list {
 
         void Show_List() const;
 
+        bool Pop_First(int* iRet);
+        bool Pop_Last(int* iRet);
 
 };
 
