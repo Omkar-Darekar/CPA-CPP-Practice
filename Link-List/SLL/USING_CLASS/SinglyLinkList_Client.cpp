@@ -4,6 +4,20 @@ int main(void) {
 
     list* pList = new list();
 
+    pList->Remove_First();
+    pList->Remove_Last();
+
+    pList->Insert_Start(200);
+    pList->Show_List();
+    
+    pList->Remove_First();
+
+    pList->Insert_Start(300);
+    pList->Show_List();
+
+    pList->Remove_Last();
+    pList->Show_List();
+
     for(int i = 0; i < 10; i++) {
         pList->Insert_End(i * 2);
     }
@@ -79,6 +93,10 @@ int main(void) {
     pList->Show_List();
 
     pList->Remove_Before(9);
+    pList->Show_List();
+
+    pList->Remove_First();
+    pList->Remove_Last();
     pList->Show_List();
 
     delete (pList);

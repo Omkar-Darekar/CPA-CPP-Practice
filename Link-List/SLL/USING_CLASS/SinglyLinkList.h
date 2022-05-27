@@ -41,6 +41,9 @@ class list {
         bool Remove_After(int data);
         bool Remove_Before(int data);
 
+        bool Remove_First();
+        bool Remove_Last();
+
 };
 
 #endif //__SINGLY_LINK_LIST__H__
