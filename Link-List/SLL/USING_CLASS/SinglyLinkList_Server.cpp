@@ -221,4 +221,27 @@ list::~list() {
     puts("\n*Removed all the nodes*\n");
 }
 
+bool list::Remove_First() {
+    if(IsListEmpty()) {
+        puts("Remove_First : List is empty\n");
+        return (false);
+    }
+    Generic_Delete(pNode, pNode->next, pNode->next->next);
+    return (true);
+}
 
+bool list::Remove_Last() {
+    if(IsListEmpty()) {
+        puts("Remove_Last : List is empty\n");
+        return (false);
+    }
+    node* run = pNode, *tmp = NULL;
+    while(run->next->next != NULL) {
+        run = run->next;
+    }
+    tmp = run->next;
+    run->next = NULL;
+    free (tmp);
+    tmp = NULL;
+    return (true);
+}
