@@ -1,6 +1,6 @@
 #include "OperatorOverloading.hpp"
 
-OperatorOverloading::OperatorOverloading(double num = 0.00) : iNum(num) {
+OperatorOverloading::OperatorOverloading(int num = 0) : iNum(num) {
 
 }
 
@@ -24,5 +24,41 @@ OperatorOverloading OperatorOverloading::operator*(const OperatorOverloading& ot
 
 OperatorOverloading OperatorOverloading::operator/(const OperatorOverloading& other) {
     return (OperatorOverloading(this->iNum / other.iNum));
+}
+
+OperatorOverloading OperatorOverloading::operator%(const OperatorOverloading& other) {
+    return (OperatorOverloading(this->iNum % other.iNum));
+}
+
+OperatorOverloading OperatorOverloading::operator<<(const int bits) {
+    return (OperatorOverloading(this->iNum << bits));
+}
+
+OperatorOverloading OperatorOverloading::operator>>(const int bits) {
+    return (OperatorOverloading(this->iNum >> bits));
+}
+
+bool OperatorOverloading::operator==(const OperatorOverloading& other) {
+    return (this->iNum == other.iNum);
+}
+
+bool OperatorOverloading::operator<(const OperatorOverloading& other) {
+    return (this->iNum < other.iNum);
+}
+
+bool OperatorOverloading::operator<=(const OperatorOverloading& other) {
+    return (this->iNum <= other.iNum);
+}
+
+bool OperatorOverloading::operator>(const OperatorOverloading& other) {
+    return (this->iNum > other.iNum);
+}
+
+bool OperatorOverloading::operator>=(const OperatorOverloading& other) {
+    return (this->iNum >= other.iNum);
+}
+
+bool OperatorOverloading::operator!=(const OperatorOverloading& other) {
+    return (this->iNum != other.iNum);
 }
 

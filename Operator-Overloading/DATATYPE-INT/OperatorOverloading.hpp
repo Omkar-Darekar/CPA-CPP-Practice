@@ -5,15 +5,25 @@
 
 class OperatorOverloading {
     private:
-        double iNum;
+        int iNum;
     public:
-        OperatorOverloading(double num);
+        OperatorOverloading(int num);
         void DisplayNumber(char* msg = NULL);
 
         OperatorOverloading operator+(const OperatorOverloading& other);
         OperatorOverloading operator-(const OperatorOverloading& other);
         OperatorOverloading operator*(const OperatorOverloading& other);
         OperatorOverloading operator/(const OperatorOverloading& other);
+        OperatorOverloading operator%(const OperatorOverloading& other);
+        OperatorOverloading operator<<(const int bits);
+        OperatorOverloading operator>>(const int bits);
+
+        bool operator==(const OperatorOverloading& other);
+        bool operator<(const OperatorOverloading& other);
+        bool operator<=(const OperatorOverloading& other);
+        bool operator>(const OperatorOverloading& other);
+        bool operator>=(const OperatorOverloading& other);
+        bool operator!=(const OperatorOverloading& other);
 
 
 };
